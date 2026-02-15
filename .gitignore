@@ -1,0 +1,16 @@
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local logs and temp files
+*.log
+*.tmp
+*.swp
+
+# OS/editor noise
+.DS_Store
