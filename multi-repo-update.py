@@ -28,6 +28,9 @@
 
 """Repository updater for many git repositories."""
 
+# Script filename is intentionally hyphenated for CLI ergonomics.
+# pylint: disable=invalid-name
+
 import argparse
 import os
 import shlex
@@ -464,8 +467,6 @@ def parse_args(argv: Sequence[str]) -> AppConfig:
         "max_depth": ns.max_depth,
         "fetch_only": ns.fetch_only,
     }
-    if HAS_PYDANTIC:
-        return AppConfig.model_validate(config_data)
     return AppConfig(**config_data)
 
 
