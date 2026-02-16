@@ -4,7 +4,7 @@ Keep many Git repositories updated from one command.
 
 This directory contains two equivalent scripts:
 
-- `multi-repo-update` (Bash)
+- `multi-repo-update.bash` (Bash)
 - `multi-repo-update.py` (Python)
 
 ## Use Case
@@ -58,25 +58,25 @@ This shows commits that became part of `HEAD` during this run, which gives you
 Run from a directory that contains repositories:
 
 ```bash
-multi-repo-update
+multi-repo-update.bash
 ```
 
 Or target a specific directory:
 
 ```bash
-multi-repo-update /path/to/repos
+multi-repo-update.bash /path/to/repos
 ```
 
 Recursive scan:
 
 ```bash
-multi-repo-update -r --max-depth 2 /path/to/repos
+multi-repo-update.bash -r --max-depth 2 /path/to/repos
 ```
 
 Monitoring mode (fetch only, no pull):
 
 ```bash
-multi-repo-update --fetch-only -r /path/to/repos
+multi-repo-update.bash --fetch-only -r /path/to/repos
 ```
 
 Python version:
