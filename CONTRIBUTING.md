@@ -65,16 +65,16 @@ If a change affects only one script, prefix the type with `bash:` or `py:`.
 
 Format:
 
-bash:<type>: short description
-py:<type>: short description
+- bash:<type>: short description
+- py:<type>: short description
 
 Examples:
 
-fix: handle missing repo directory
-feat: add dry-run option
-bash:fix: improve error handling
-py:feat: add config validation
-docs: update usage example
+- fix: handle missing repo directory
+- feat: add dry-run option
+- bash:fix: improve error handling
+- py:feat: add config validation
+- docs: update usage example
 
 ---
 
