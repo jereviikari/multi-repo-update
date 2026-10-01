@@ -329,11 +329,12 @@ class RepoUpdater:  # pylint: disable=too-few-public-methods
                 f"{display_name} is a bare repository - skipping pull"
             )
         else:
-            pull_result = self._git(path, ["pull", "--prune", "--ff-only"])
+            pull_result = self._git(path, ["pull", "--prune", "--rebase"])
             if pull_result.returncode != 0:
                 self.logger.warn(
-                    f"{display_name} pull was not fast-forward - "
-                    "leaving repository unchanged"
+                    f"{display_name} pull --rebase failed; if a rebase is "
+                    "in progress, resolve conflicts and run git rebase "
+                    "--continue, or run git rebase --abort"
                 )
 
         if self._has_ref(path, self.config.log_range_ref):

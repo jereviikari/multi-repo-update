@@ -31,7 +31,7 @@ This is where Git reports newly discovered upstream refs (for example new
 branches and tags), because `git fetch` prints them.
 
 3. If not `--fetch-only`:
-   - non-bare repo: `git pull --prune --ff-only`
+   - non-bare repo: `git pull --prune --rebase`
    - bare repo: skip pull
 4. Show:
 
@@ -115,8 +115,14 @@ CLI options override environment values.
   - shown by `git fetch` output (`[new branch] ...`, `[new tag] ...`)
 - Commits since last run:
   - shown by `git log <range-ref>..HEAD` after fetch/pull
-- Fast-forward safety:
-  - pull is `--ff-only`; non-FF situations are not auto-merged
+- Rebase behavior:
+  - pull uses `--rebase` to replay local commits on top of upstream without
+    creating merge commits
+  - rewritten local commits can appear in the final log alongside incoming
+    commits because their hashes changed
+  - if a conflict stops the rebase, resolve it and run `git rebase --continue`,
+    or cancel with `git rebase --abort`; the scripts print a warning and
+    continue to the next repository
 
 ## Recursive Behavior
 
