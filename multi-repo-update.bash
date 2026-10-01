@@ -256,9 +256,9 @@ _update_one() {
     if is_bare_repo "$dir"; then
       info "$dir is a bare repository - skipping pull"
     else
-      # Pull current branch (fast-forward only by default to avoid accidental merges)
-      if ! git -C "$dir" pull --prune --ff-only; then
-        warn "$dir pull was not fast-forward - leaving repository unchanged"
+      # Replay local commits on top of upstream without creating a merge.
+      if ! git -C "$dir" pull --prune --rebase; then
+        warn "$dir pull --rebase failed; if a rebase is in progress, resolve conflicts and run git rebase --continue, or run git rebase --abort"
       fi
     fi
   fi
